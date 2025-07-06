@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Color Tool</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="tool-box">
+    <!-- Header row: title only -->
+    
+    <div class="header-row">
+      <div class="header-row"><h1>ALL BLACK SCREEN</h1>
+      <p class="subtitle">Make your screen black.</p>
+    </div>
+
+    <!-- Main row: flex container -->
+    <div class="main-row">
+      <!-- Left vertical color-block column -->
+      <div class="color-list-left">
+        <div class="color-block-vert" data-color="#FFFF00">Yellow</div>
+        <div class="color-block-vert" data-color="#FFA500">Orange</div>
+        <div class="color-block-vert" data-color="#FFC0CB">Pink</div>
+        <div class="color-block-vert" data-color="#800080">Purple</div>
+        <div class="color-block-vert" data-color="#FFE5B4">Zoom</div>
+      </div>
+
+      <!-- Center preview and horizontal colors -->
+      <div class="center-area">
+        <section class="preview-area">
+          <div class="preview-box" id="preview-box"><div class="fullscreen-icon" title="Fullscreen">&#x26F6;</div></div>
+        </section>
+        <!-- Horizontal color list under preview -->
+        <div class="color-list-horizontal">
+          <div class="color-block" data-color="#FFFFFF">White Screen</div>
+          <div class="color-block selected" data-color="#000000">Black Screen</div>
+          <div class="color-block" data-color="#FF0000">Red Screen</div>
+          <div class="color-block" data-color="#00FF00">Green Screen</div>
+          <div class="color-block" data-color="#0000FF">Blue Screen</div>
+          <div class="color-block" data-color="#800080">Purple Screen</div>
+        </div>
+      </div>
+
+      <!-- Right controls -->
+      <aside class="controls">
+        <label for="preset">Black background</label>
+        <select id="preset">
+          <option value="640x480">480p (640×480)</option>
+          <option value="1280x720">720p (1280×720)</option>
+          <option selected value="1920x1080">1080p (1920×1080)</option>
+          <option value="2560x1440">1440p (2560×1440)</option>
+          <option value="3840x2160">2160p (3840×2160)</option>
+          <option value="7680x4320">4320p (7680×4320)</option>
+        </select>
+
+        <div class="custom-res">
+          <label>Custom Resolution:</label>
+          <div class="custom-inputs">
+            <input type="number" id="width" placeholder="Width" min="1" value="1920"/>
+            <span>×</span>
+            <input type="number" id="height" placeholder="Height" min="1" value="1080"/>
+            <span>px</span>
+          </div>
+        </div>
+
+        <button class="download-btn" id="downloadBtn">Download</button>
+
+        <div class="color-picker-group">
+          <input type="color" id="colorPicker" value="#000000"/>
+          <input type="text" id="hexCode" value="#000000" maxlength="7"/>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

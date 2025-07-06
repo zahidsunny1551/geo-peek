@@ -1,0 +1,411 @@
+/* Import Poppins font */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #F0F2F5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main tool container with subtle shadow */
+.tool-box {
+  max-width: 1200px;
+  margin: 40px auto;
+  background: #FFF;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Header row */
+.header-row {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.header-row h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Main row flex container with minimal gaps */
+.main-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px; /* small gap between left, center, right */
+}
+
+/* Left vertical color-block column */
+.color-list-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* smaller vertical spacing */
+}
+
+.color-block-vert {
+  width: 90px;
+  height: 54px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+  text-align: center;
+}
+
+.color-block-vert:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Specific backgrounds for vertical blocks */
+.color-block-vert[data-color="#FFFF00"] { background: #FFFF00; color: #333; border: 1px solid #CCC; }
+.color-block-vert[data-color="#FFA500"] { background: #FFA500; }
+.color-block-vert[data-color="#FFC0CB"] { background: #FFC0CB; color: #333; }
+.color-block-vert[data-color="#800080"] { background: #800080; }
+.color-block-vert[data-color="#FFE5B4"] { background: #FFE5B4; color: #333; }
+
+/* Center area holds preview + horizontal list */
+.center-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px; /* smaller gap */
+}
+
+/* Preview box styling */
+.preview-box {
+  width: 540px;
+  height: 300px;
+  background: #000;
+  border-radius: 12px;
+  box-shadow: 0 0 24px rgba(255,165,0,0.6);
+  position: relative;
+  cursor: pointer;   /* <-- ADDED: pointer cursor on preview box */
+}
+
+/* Fullscreen button */
+.fullscreen-btn {
+  position: absolute;
+  bottom: 8px; /* reduced */
+  right: 8px;  /* reduced */
+  background: rgba(255,255,255,0.85);
+  border: none;
+  border-radius: 4px;
+  width: 28px;  /* smaller */
+  height: 28px; /* smaller */
+  font-size: 16px; /* smaller */
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.fullscreen-btn:hover {
+  background: rgba(255,255,255,1);
+}
+
+/* Horizontal color list under preview */
+.color-list-horizontal {
+  display: flex;
+  gap: 12px; /* smaller */
+}
+
+.color-block {
+  width: 90px;
+  height: 54px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #FFF;
+  text-decoration: none;
+  position: relative;
+  border: 2px solid transparent;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+  text-align: center; /* center text */
+}
+
+.color-block:hover {
+  transform: translateY(-4px);
+}
+
+.color-block.selected {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Specific backgrounds */
+.color-block[data-color="#FFFFFF"] { background: #FFFFFF; color: #333; border: 2px solid #CCC; }
+.color-block[data-color="#000000"] { background: #000000; }
+.color-block[data-color="#FF0000"] { background: #FF0000; }
+.color-block[data-color="#00FF00"] { background: #00FF00; }
+.color-block[data-color="#0000FF"] { background: #0000FF; }
+.color-block[data-color="#800080"] { background: #800080; }
+
+/* Controls panel */
+.controls {
+  width: 240px; /* smaller width */
+  background: #FFF;
+  border-radius: 8px;
+  padding: 16px; /* reduced padding */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.controls label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.controls select {
+  width: 100%;
+  padding: 8px; /* reduced */
+  font-size: 0.95rem;
+  border: 1px solid #CCC;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  appearance: none;
+}
+
+.custom-res {
+  margin-bottom: 12px; /* reduced */
+}
+
+.custom-inputs {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* reduced */
+}
+
+.custom-inputs input {
+  width: 60px; /* smaller */
+  padding: 6px;
+  font-size: 0.9rem;
+  border: none;
+  border-bottom: 1px solid #888;
+  background: transparent;
+  text-align: center;
+}
+
+.custom-inputs span {
+  font-size: 1rem; /* smaller */
+  color: #444;
+}
+
+.download-btn {
+  width: 100%;
+  padding: 10px 0; /* reduced */
+  background: #007BFF;
+  color: #FFF;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem; /* smaller */
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-bottom: 12px; /* reduced */
+}
+
+.download-btn:hover {
+  background: #0056b3;
+}
+
+.color-picker-group {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* smaller */
+}
+
+.color-picker-group input[type="color"] {
+  width: 32px; /* smaller */
+  height: 32px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.color-picker-group input[type="text"] {
+  flex: 1;
+  padding: 6px; /* smaller */
+  font-size: 0.9rem; /* smaller */
+  border: none;
+  border-bottom: 1px solid #888;
+  background: transparent;
+  text-align: center;
+}
+/* Fullscreen icon positioning */
+.fullscreen-icon {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s ease;
+}
+.fullscreen-icon:hover {
+  background: rgba(255,255,255,1);
+}
+
+/* Hide fullscreen icon when preview is in fullscreen */
+.preview-box:fullscreen .fullscreen-icon,
+.preview-box:-webkit-full-screen .fullscreen-icon,
+.preview-box:-moz-full-screen .fullscreen-icon {
+  display: none;
+}
+
+.header-row h1 {
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.header-row .subtitle {
+  color: #000;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* --- Add this block for all interactive elements --- */
+.preview-box,
+.color-block,
+.color-block-vert,
+.fullscreen-icon,
+.download-btn,
+input[type="color"],
+input[type="text"],
+select,
+.custom-inputs input {
+  cursor: pointer;
+}
+
+
+/* --------- MOBILE FRIENDLY RESPONSIVENESS --------- */
+@media (max-width: 900px) {
+  .tool-box {
+    max-width: 98vw;
+    padding: 10px;
+    margin: 16px auto;
+  }
+  .main-row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .color-list-left,
+  .controls {
+    flex-direction: row !important;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 8px;
+    padding: 0;
+    box-shadow: none;
+    background: none;
+  }
+  .color-block-vert,
+  .controls {
+    width: 100%;
+    max-width: 120px;
+    min-width: 60px;
+    margin: 0 auto;
+    font-size: 0.85rem;
+  }
+  .controls {
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    background: #FFF;
+    width: 100%;
+    max-width: 98vw;
+  }
+  .center-area {
+    width: 100%;
+    align-items: center;
+  }
+  .preview-box {
+    width: 96vw !important;
+    max-width: 100vw !important;
+    height: 34vw !important;
+    min-height: 160px;
+    max-height: 52vw;
+  }
+  .color-list-horizontal {
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  .color-block,
+  .color-block-vert {
+    width: 24vw;
+    min-width: 70px;
+    max-width: 120px;
+    height: 36px;
+    font-size: 0.92rem;
+    margin: 0 2px 4px 2px;
+  }
+  .color-block-vert {
+    height: 36px;
+  }
+  .color-picker-group {
+    flex-direction: row;
+    gap: 8px;
+  }
+  .custom-inputs input {
+    width: 48px;
+    font-size: 0.95rem;
+  }
+  .download-btn {
+    font-size: 1rem;
+    padding: 9px 0;
+  }
+}
+@media (max-width: 600px) {
+  .tool-box {
+    padding: 2vw 2vw;
+    margin: 2vw 0;
+    max-width: 100vw;
+  }
+  .header-row h1 {
+    font-size: 1.18rem;
+  }
+  .center-area {
+    width: 100%;
+  }
+  .preview-box {
+    width: 99vw !important;
+    max-width: 100vw !important;
+    height: 38vw !important;
+    min-height: 120px;
+    max-height: 180px;
+  }
+  .color-block,
+  .color-block-vert {
+    width: 30vw;
+    min-width: 60px;
+    max-width: 100px;
+    height: 34px;
+    font-size: 0.85rem;
+  }
+  .controls label {
+    font-size: 0.9rem;
+  }
+  .download-btn {
+    padding: 8px 0;
+    font-size: 0.98rem;
+  }
+}
